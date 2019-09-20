@@ -30,14 +30,27 @@ def calc_distance(lat_origin, long_origin, lat_dest, long_dest):
     origin = (lat_origin, long_origin)
     destination = (lat_dest, long_dest)
 
-    return geopy.distance.vincenty(origin, destination).meters
+    return geopy.distance.geodesic(origin, destination).meters
 
 
 url = 'https://raw.githubusercontent.com/storypark/web_developer_screener/master/staff_list.json'
 data = get_response(url)
 
+# keep the office location, to be used for distance calculations
+office_location = (-41.2920728, 174.7748162)
+
 # access the staff from the json object
 staff = data['staff']
 
+# for each member of staff, print their information
 for person in staff:
-    print(person['id'])
+    print("Name: " + person['name'])
+    print("Staff Id: " + str(person['id']))
+    print("Role: " + person['role'])
+
+    # save the location dictionary
+    destination = person['location']
+    distance_to_office = calc_distance(office_location[0], office_location[1],
+                                       destination['latitude'], destination['longitude'])
+
+    print("Distance from the office (meters): %.0f \n" % distance_to_office)
