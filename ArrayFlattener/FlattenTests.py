@@ -1,5 +1,5 @@
 import unittest
-import FlattenArray
+from ArrayFlattener import FlattenArray
 
 
 class Tests(unittest.TestCase):
