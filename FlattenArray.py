@@ -1,4 +1,4 @@
-import itertools
+import numpy
 
 
 def flatten(init_array):
@@ -8,5 +8,6 @@ def flatten(init_array):
     :param init_array: the array to be flattened.
     :return: the flattened one dimensional array.
     """
-    return list(itertools.chain(*init_array))
+    temp_array = numpy.array(init_array)
+    return list(temp_array.flatten())
 

@@ -7,12 +7,16 @@ class Tests(unittest.TestCase):
         array = [[1], [2], 3]
         flat_array = FlattenArray.flatten(array)
         expected = [1, 2, 3]
+        print(flat_array)
+        print(expected)
         self.assertTrue(flat_array == expected)
 
     def test_nested_array_02(self):
         array = [[1], [2], [3]]
         flat_array = FlattenArray.flatten(array)
         expected = [1, 2, 3]
+        print(flat_array)
+        print(expected)
         self.assertTrue(flat_array == expected)
 
     def test_nested_array_03(self):
@@ -25,12 +29,16 @@ class Tests(unittest.TestCase):
         array = [[1], [2, 3], [4]]
         flat_array = FlattenArray.flatten(array)
         expected = [1, 2, 3, 4]
+        print(flat_array)
+        print(expected)
         self.assertTrue(flat_array == expected)
 
     def test_nested_array_05(self):
         array = [[], [1], [2, 3], [4]]
         flat_array = FlattenArray.flatten(array)
         expected = [1, 2, 3, 4]
+        print(flat_array)
+        print(expected)
         self.assertTrue(flat_array == expected)
 
 
