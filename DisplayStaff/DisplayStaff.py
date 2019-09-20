@@ -27,10 +27,10 @@ def calc_distance(lat_origin, long_origin, lat_dest, long_dest):
     :param long_dest: the longitude of the destination point.
     :return: the number of meters from the origin point to the destination.
     """
-    origin = (lat_origin, long_origin)
-    destination = (lat_dest, long_dest)
+    origin_point = (lat_origin, long_origin)
+    destination_point = (lat_dest, long_dest)
 
-    return geopy.distance.geodesic(origin, destination).meters
+    return geopy.distance.geodesic(origin_point, destination_point).meters
 
 
 url = 'https://raw.githubusercontent.com/storypark/web_developer_screener/master/staff_list.json'
