@@ -8,5 +8,5 @@ def flatten(init_array):
     :param init_array: the array to be flattened.
     :return: the flattened one dimensional array.
     """
-    return list(itertools.chain.from_iterable(init_array))
+    return list(itertools.chain(*init_array))
 
