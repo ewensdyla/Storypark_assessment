@@ -33,24 +33,29 @@ def calc_distance(lat_origin, long_origin, lat_dest, long_dest):
     return geopy.distance.geodesic(origin_point, destination_point).meters
 
 
-url = 'https://raw.githubusercontent.com/storypark/web_developer_screener/master/staff_list.json'
-data = get_response(url)
+def main():
+    url = 'https://raw.githubusercontent.com/storypark/web_developer_screener/master/staff_list.json'
+    data = get_response(url)
 
-# keep the office location, to be used for distance calculations
-office_location = (-41.2920728, 174.7748162)
+    # keep the office location, to be used for distance calculations
+    office_location = (-41.2920728, 174.7748162)
 
-# access the staff from the json object
-staff = data['staff']
+    # access the staff from the json object
+    staff = data['staff']
 
-# for each member of staff, print their information
-for person in staff:
-    print("Name: " + person['name'])
-    print("Staff Id: " + str(person['id']))
-    print("Role: " + person['role'])
+    # for each member of staff, print their information
+    for person in staff:
+        print("Name: " + person['name'])
+        print("Staff Id: " + str(person['id']))
+        print("Role: " + person['role'])
 
-    # save the location dictionary
-    destination = person['location']
-    distance_to_office = calc_distance(office_location[0], office_location[1],
-                                       destination['latitude'], destination['longitude'])
+        # save the location dictionary
+        destination = person['location']
+        distance_to_office = calc_distance(office_location[0], office_location[1],
+                                           destination['latitude'], destination['longitude'])
 
-    print("Distance from the office (meters): %.0f \n" % distance_to_office)
+        print("Distance from the office (meters): %.0f \n" % distance_to_office)
+
+
+if __name__ == "__main__":
+    main()
